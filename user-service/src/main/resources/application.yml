@@ -1,0 +1,21 @@
+server:
+  port: 7878
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:13551/user-service
+    username: user-service
+    password: secret
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  liquibase:
+    change-log: classpath:db/changelog/db-changelog.xml
+
+  docker:
+    compose:
+      skip:
+        in-tests: false
